@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    database: deve_db
+    schema: raw
+    tables:
+      - name: dmart_raw
