@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: dim_category
+    columns:
+      - name: category_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_city
+    columns:
+      - name: city_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_customer
+    columns:
+      - name: cust_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_region
+    columns:
+      - name: region_id
+        tests:
+          - not_null
+          - unique
+
+      - name: region
+        tests:
+          - accepted_values:
+             values: ["Central", "East", "North", "South", "West"]
