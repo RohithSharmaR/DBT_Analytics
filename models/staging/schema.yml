@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: stg_dmart_raw
+    columns:
+      - name: sales
+        tests:
+          - not_zero
+        
+      - name: profit
+        tests:
+          - not_zero
