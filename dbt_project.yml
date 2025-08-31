@@ -37,8 +37,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   my_project: 
-    transfromation:    #path
-      +database: deve_db      #configuration
+    staging:
+      +database: deve_db
+      +schema: raw
+    transfromation:    
+      +database: deve_db    
       +schema: TANSFORMATION 
     reporting: 
       +database: deve_db
