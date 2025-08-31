@@ -43,3 +43,7 @@ models:
     reporting: 
       +database: deve_db
       +schema: LOADING
+seeds:
+  my_project:
+    +database: deve_db
+    +schema: raw
