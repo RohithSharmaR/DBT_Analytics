@@ -38,15 +38,39 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   my_project: 
     staging:
-      +database: deve_db
+      +database: |
+        {% if target.name == 'dev' %} deve_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} 'invalid_database'
+        {% endif %}
       +schema: raw
     transfromation:    
-      +database: deve_db    
+      +database: |
+        {% if target.name == 'dev' %} deve_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} 'invalid_database'
+        {% endif %}    
       +schema: TANSFORMATION 
     reporting: 
-      +database: deve_db
+      +database: |
+        {% if target.name == 'dev' %} deve_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} 'invalid_database'
+        {% endif %}
       +schema: LOADING
 seeds:
   my_project:
-    +database: deve_db
+    +database: |
+      {% if target.name == 'dev' %} deve_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} 'invalid_database'
+        {% endif %}
     +schema: raw
