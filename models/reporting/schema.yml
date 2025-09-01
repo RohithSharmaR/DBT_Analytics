@@ -1,0 +1,6 @@
+version: 2
+models: 
+  - name: sales
+    tests:
+      - dbt_expectations.expect_table_column_count_to_equal:
+          value: 9

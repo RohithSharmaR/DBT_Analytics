@@ -1,11 +1,14 @@
 select 
+{{ dbt_utils.generate_surrogate_key(['order_id', 'order_date']) }} as order_date_id ,
 order_id ,
 c.cust_id ,
 cat.category_id ,
 cc.city ,
 r.order_date ,
 rr.region_id ,
-r.sales ,
+r.sales,
+{{multi('sales','discount')}} as used_macro_for_discount,
+r.sales * r.discount  as profit_cal,
 r.discount ,
 r.profit
 from
