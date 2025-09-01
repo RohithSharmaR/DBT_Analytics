@@ -31,4 +31,4 @@ models:
       - name: region
         tests:
           - accepted_values:
-             values: ["Central", "East", "North", "South", "West"]
+              values: ["Central", "East", "North", "South", "West"]
