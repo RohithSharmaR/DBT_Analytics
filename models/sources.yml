@@ -6,3 +6,6 @@ sources:
     schema: raw
     tables:
       - name: dmart_raw
+
+      - name: customer_details
+      - name: customer_details_no_update
